@@ -1,0 +1,16 @@
+<div class="list-group">
+  <a href="#" class="list-group-item list-group-item-action flex-column align-items-start" *ngFor="let warehouse of warehouses">
+    <div class="d-flex w-100">
+      <h5 class="mb-1">{{warehouse.name}}</h5>
+    </div>
+    <p class="mb-1">
+      {{warehouse.address.street}}
+      <br>
+      {{warehouse.address.postalCode}} {{warehouse.address.city}}
+      <br>
+      {{warehouse.address.country}}
+    </p>
+    <small>Max space: {{warehouse.size}}</small>
+    <small>Hazardous products: {{warehouse.hazardousProducts}}</small>
+  </a>
+</div>
