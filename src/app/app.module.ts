@@ -10,12 +10,14 @@ import { AppComponent } from './app.component';
 import { WarehousesListComponent } from './warehouses-list/warehouses-list.component';
 import { WarehousePageComponent } from './warehouse-page/warehouse-page.component';
 import { ApplicationRoutes } from './app.routing';
+import { WarehouseCurrentStockComponent } from './warehouse-current-stock/warehouse-current-stock.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     WarehousesListComponent,
-    WarehousePageComponent
+    WarehousePageComponent,
+    WarehouseCurrentStockComponent
   ],
   imports: [
     BrowserModule,

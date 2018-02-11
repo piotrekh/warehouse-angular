@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-warehouse-page',
@@ -7,7 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WarehousePageComponent implements OnInit {
 
-  constructor() { }
+  public warehouseId: number;
+
+  constructor(private route: ActivatedRoute) { 
+      this.route.params.subscribe(result => {
+        this.warehouseId = result['id'];        
+      });
+    }
 
   ngOnInit() {
   }

@@ -19,7 +19,7 @@ export class ApiService {
     }
 
     public getCurrentWarehouseStock(warehouseId: number): Observable<WarehouseStock> {
-        const url: string = `${environment.apiUrl}/warehouses/${warehouseId}`;
+        const url: string = `${environment.apiUrl}/warehouses/${warehouseId}/stock`;
         return this.httpClient.get<WarehouseStock>(url);
     }
 
