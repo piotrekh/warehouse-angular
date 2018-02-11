@@ -11,13 +11,15 @@ import { WarehousesListComponent } from './warehouses-list/warehouses-list.compo
 import { WarehousePageComponent } from './warehouse-page/warehouse-page.component';
 import { ApplicationRoutes } from './app.routing';
 import { WarehouseCurrentStockComponent } from './warehouse-current-stock/warehouse-current-stock.component';
+import { WarehouseStockHistoryComponent } from './warehouse-stock-history/warehouse-stock-history.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     WarehousesListComponent,
     WarehousePageComponent,
-    WarehouseCurrentStockComponent
+    WarehouseCurrentStockComponent,
+    WarehouseStockHistoryComponent
   ],
   imports: [
     BrowserModule,

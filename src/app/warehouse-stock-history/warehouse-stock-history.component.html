@@ -1,0 +1,11 @@
+<h3>Stock movement history</h3>
+  <ul class="list-group mt-3">
+    <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let stockEvent of stockEvents">
+      <div>
+        <strong>{{stockEvent.eventDate | date}}</strong>
+        <br>
+        {{stockEvent.product.name}}   
+      </div>
+      <span class="badge badge-pill" [ngClass]="{ 'badge-success': stockEvent.eventType === 'import', 'badge-danger' : stockEvent.eventType === 'export'}">{{stockEvent.eventType === 'import' ? '+' : '-'}}{{stockEvent.productAmount}}</span>
+    </li>
+  </ul>

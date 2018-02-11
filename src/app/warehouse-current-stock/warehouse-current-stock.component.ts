@@ -39,7 +39,6 @@ export class WarehouseCurrentStockComponent implements OnInit {
   }
 
   private loadStock() {
-    console.log("LOADING STOCK");
     this.apiService.getCurrentWarehouseStock(this.warehouseId).subscribe(result => {
       this.stock = result;
       this.occupiedSpacePercentage = Math.round(100 * (this.stock.maxSize - this.stock.freeSpace) / this.stock.maxSize);

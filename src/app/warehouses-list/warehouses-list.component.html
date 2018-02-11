@@ -13,6 +13,6 @@
     </p>
     <small>Max space: {{warehouse.size}}</small>
     <br>
-    <small>Hazardous products: {{warehouse.hazardousProducts}}</small>
+    <small style="font-weight: bold" [ngClass]="{ 'text-danger' : warehouse.hazardousProducts, 'text-success' : !warehouse.hazardousProducts }">{{warehouse.hazardousProducts ? 'Hazardous products' : 'Non-hazardous products'}}</small>
   </a>
 </div>
