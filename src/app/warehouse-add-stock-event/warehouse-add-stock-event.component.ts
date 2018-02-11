@@ -5,6 +5,8 @@ import { AddStockEvent } from '../api/models/add-stock-event';
 import { eventTypes } from '../api/constants';
 import * as moment from 'moment';
 import { NgbDateStruct, NgbTimeStruct } from '@ng-bootstrap/ng-bootstrap';
+import { ToastrService } from 'ngx-toastr';
+import { StockService } from '../shared/stock.service';
 
 @Component({
   selector: 'app-warehouse-add-stock-event',
@@ -80,7 +82,8 @@ export class WarehouseAddStockEventComponent implements OnInit {
 
   public stockEvent: AddStockEvent;
 
-  constructor(private apiService: ApiService) { }
+  constructor(private apiService: ApiService,
+  private stockService: StockService) { }
 
   ngOnInit() {
     this.loadProducts();
@@ -88,6 +91,7 @@ export class WarehouseAddStockEventComponent implements OnInit {
 
   public addEvent() {
     console.log(this.stockEvent);
+    this.stockService.addStockEvent(this.warehouseId, this.stockEvent);
   }
 
   private loadProducts() {

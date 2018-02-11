@@ -1,13 +1,17 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { ApiService } from '../api/api.service';
 import { WarehouseStock } from '../api/models/warehouse-stock';
+import { Subscription } from 'rxjs/Subscription';
+import { StockService } from '../shared/stock.service';
 
 @Component({
   selector: 'app-warehouse-current-stock',
   templateUrl: './warehouse-current-stock.component.html',
   styleUrls: ['./warehouse-current-stock.component.scss']
 })
-export class WarehouseCurrentStockComponent implements OnInit {
+export class WarehouseCurrentStockComponent implements OnInit, OnDestroy {
+
+  private stockAddedSubscription: Subscription;
 
   private _warehouseId: number;
 
@@ -33,9 +37,16 @@ export class WarehouseCurrentStockComponent implements OnInit {
       return "danger";
   }
 
-  constructor(private apiService: ApiService) { }
+  constructor(private apiService: ApiService,
+    private stockService: StockService) {
+    this.stockAddedSubscription = this.stockService.onStockAdded().subscribe(x => this.loadStock());
+  }
 
   ngOnInit() {
+  }
+
+  ngOnDestroy(){
+    this.stockAddedSubscription.unsubscribe();
   }
 
   private loadStock() {
