@@ -1,5 +1,6 @@
 <div class="list-group">
-  <a href="#" class="list-group-item list-group-item-action flex-column align-items-start" *ngFor="let warehouse of warehouses">
+  <a href="#" class="list-group-item list-group-item-action flex-column align-items-start" *ngFor="let warehouse of warehouses"
+    routerLink="/warehouses/{{warehouse.id}}" routerLinkActive="active">
     <div class="d-flex w-100">
       <h5 class="mb-1">{{warehouse.name}}</h5>
     </div>
@@ -11,6 +12,7 @@
       {{warehouse.address.country}}
     </p>
     <small>Max space: {{warehouse.size}}</small>
+    <br>
     <small>Hazardous products: {{warehouse.hazardousProducts}}</small>
   </a>
 </div>
