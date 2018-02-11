@@ -7,10 +7,16 @@ import { environment } from "../../environments/environment";
 import { WarehouseStock } from "./models/warehouse-stock";
 import { StockEvent } from "./models/stock-event";
 import { AddStockEvent } from "./models/add-stock-event";
+import { Product } from "./models/product";
 
 @Injectable()
 export class ApiService {
     constructor(private httpClient: HttpClient) {
+    }
+    
+    public getAllProducts(): Observable<ItemsResult<Product>> {
+        const url: string = `${environment.apiUrl}/products`;
+        return this.httpClient.get<ItemsResult<Product>>(url);
     }
 
     public getAllWarehouses(): Observable<ItemsResult<WarehouseInfo>> {

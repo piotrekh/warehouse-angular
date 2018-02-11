@@ -4,7 +4,9 @@
     <ngb-progressbar showValue="true" [type]="occupiedSpaceIndicatorType" [value]="occupiedSpacePercentage"></ngb-progressbar>
   </div>
 
-  <h3 class="mt-5">Current stock</h3>
+  <hr class="mt-5 mb-5">
+
+  <h3>Current stock</h3>
   <ul class="list-group mt-3">
     <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let stockProduct of stock.currentStock">
       <div>
